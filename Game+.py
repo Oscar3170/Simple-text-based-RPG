@@ -24,7 +24,7 @@ def encounter():
 		e_lvl=level
 		e_name=enemie.split('  ')[0]
 		e_atk=int(int(enemie.split('  ')[1])*(1+level/9))
-		e_hp=int(enemie.split('  ')[2])
+		e_hp=int(enemie.split('  ')[2])*level/2
 		e_xp=int(enemie.split('  ')[3])
 		print('ENEMIE: ' + e_name)
 		print('LEVEL: ' + str(e_lvl))
@@ -112,6 +112,34 @@ while True:
 			expe_f=0
 			expe=0
 
+
+fkjbrfjkbrekjhew
+ewrjhebwtherbtjhber
+wberjkbtkejwrbtkejrwbt
+wertewraSDASD
+ASDFASDFASFASDF
+ASDFASDFASFASDF
+dsfasd
+Fistsdaf
+sdaf
+asd
+for ASDFASDFASFASDFas
+dsfasdsdf
+ASDFASDFASFASDFasasdf
+sd
+for sdaf
+Fistsdafdf
+asd
+for ASDFASDFASFASDFasasdfasdf
+asd
+for sdaf
+for in 
+for x in xrange(1,10):
+	pass:
+ 	pass in xrange(1,10):
+ 	pass in xrange(1,10):
+ 	pass in xrange(1,10):
+	pass
 
 
 
