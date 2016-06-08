@@ -1,7 +1,7 @@
 import os
 from random import randint
 
-enemies=['Rat  03  10  40', 'Pigeon  07  05  45', 'Big Rat  08  20  65']
+enemies=['Rat  03  10  40', 'Pigeon  04  05  45', 'Big Rat  04  20  65', 'Amoeba  1  20  20']
 level=1
 bag=['bread', 'water']
 weapons=['Stick  999', 'Fists  5']
@@ -23,7 +23,7 @@ def encounter():
 		enemie=enemies[randint(1,len(enemies))-1]
 		e_lvl=level
 		e_name=enemie.split('  ')[0]
-		e_atk=int(int(enemie.split('  ')[1])*(1+level/9))
+		e_atk=int(int(enemie.split('  ')[1])*(1+level/6))
 		e_hp=int(enemie.split('  ')[2])
 		e_xp=int(enemie.split('  ')[3])
 		print('ENEMIE: ' + e_name)
@@ -56,7 +56,7 @@ def encounter():
 								dam_weapon=con_weapon.split('  ')[1]
 						if dam_weapon=='':
 							weapon=input()
-					damage= int(dam_weapon)+(level/2)-(e_lvl/3)+randint(level-2,level+2)
+					damage= int(dam_weapon)+(level/2)+randint(1,2)
 					e_hp=e_hp - damage
 					print(e_name +' has lost ' + str(int(damage))+ ' HP!')
 					if e_hp<0:
@@ -87,6 +87,8 @@ def encounter():
 			print('You\'ve run away safely!')
 		else:
 			if battle_hp>0:
+                                if e_name=='Amoeba':
+                                        print('
 				print('The ' + e_name +' died!')
 				gained_xp= e_xp*randint(1.1,1.999)
 				print('You\'ve gained ' + str(int(gained_xp)) + ' xp!')
