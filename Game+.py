@@ -174,34 +174,3 @@ while True:
             expe=0
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-def battle():
-	print('RAT - 40HP')
-	print('')
-	print('Actions - Attack')
-
-
-print('You have nothing')
-print('something atacks you')
-os.system('clear')
-
-
-print('RAT - 40HP')
-print('')
-print('Actions - Attack')'''
