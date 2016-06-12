@@ -12,10 +12,23 @@ def enemies_txt(area):
 		file.write('enemies=[]')
 		file.close()
 
-def items_txt(new_item):
+def items_txt_add(new_item):
 	_bag_=bag
 	_bag_.append(new_item)
 	file=open('list_bag.py', 'w')
-	file.write('bag=[\''+'\', \''.join(_bag_)+'\']')
+	file.write('bag=', _bag_)
+	file.close()
 
-items_txt('Pinto  dmg  9999')
+def items_txt_rmv(item):
+	_bag_= bag
+	for the_item in _bag_:
+		if item == the_item.split('  ')[0]:
+			split_item=the_item.split('  ')
+		if split_item[1]=='boost':
+			split_item[4]=str(int(split_item[4])-1)
+		else:
+			split_item[4]=str(int(split_item[3])-1)					 
+			if split_item=='0':
+				print('xablau')
+
+
