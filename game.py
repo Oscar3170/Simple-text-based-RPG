@@ -1,11 +1,13 @@
 import os
+import sys
 from random import randint
-from add import enemies_txt
+from add import enemies_txt, items_txt_add
 from fight import encounter
-from info import level, bag, weapons, hp, expe, expe_f
+from info import level, weapons, hp, expe, expe_f
 from list_enemies import enemies
+from list_bag import bag
 
-
+print(sys.platform)
 enemies_txt(1)
 while True:
     print(str(level)+' '+str(hp)+' '+str(int(expe))+' '+str(int(expe_f)))

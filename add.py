@@ -28,21 +28,17 @@ def items_txt_rmv(item):
 	if split_item[1]=='boost':
 		split_item[4]=(str(int(split_item[4])-1))
 		if split_item[4]=='0':
-			_bag_.remove(the_item)
+			_bag_.remove(chosen_item)
 		else:
 			joined_item='  '.join(split_item)
 			_bag_[_bag_.index(chosen_item)]=joined_item
 	else:
 		split_item[3]=str(int(split_item[3])-1)
 		if split_item[3]=='0':
-			_bag_.remove(the_item)
+			_bag_.remove(chosen_item)
 		else:
 			joined_item='  '.join(split_item)
 			_bag_[_bag_.index(chosen_item)]=joined_item
 	file=open('list_bag.py', 'w')
 	file.write('bag=[\''+'\', \''.join(_bag_)+'\']')
 	file.close()
-
-			
-
-items_txt_rmv('Bread')
