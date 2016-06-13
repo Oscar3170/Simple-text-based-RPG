@@ -47,5 +47,5 @@ def items_txt_rmv(item):
 	file.write(changed_area)
 	file.close'''
 
-enemies_txt(1)
+enemies_txt(0)
 
