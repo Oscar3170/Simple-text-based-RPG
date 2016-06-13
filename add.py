@@ -2,13 +2,16 @@ from list_bag import bag
 from list_enemies import enemies
 
 def enemies_txt(area):
+	file=open('list_enemies.py', 'r')
+	red=file.read()
 	if area==0:
 		letters=('enemies=[\'Rat  03  10  35\', \'Pigeon  04  05  45\', \'Big Rat  04  15  65\']')
 	elif area==1:
 		letters=('enemies=[\'Amoeba  1  20  20\']')
-	file=open('list_enemies.py', 'w')
-	file.write(letters)
-	file.close()
+	if letters != red:
+		file=open('list_enemies.py', 'w')
+		file.write(letters)
+		file.close()
 
 def items_txt_add(new_item):
 	_bag_=bag

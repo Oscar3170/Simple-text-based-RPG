@@ -1,1 +1,1 @@
-bag=['Bread  heal  10  3', 'X Defense  boost  defense  3  1', 'X Attack  boost  atk  2  1']
+bag=['Bread  heal  10  3', 'Water  heal  5  1', 'Flames  dmg  20  1', 'X Defense  boost  defense  3  1', 'X Attack  boost  atk  2  1']
