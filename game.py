@@ -4,9 +4,11 @@ from add import enemies_txt, items_txt_add
 from fight import encounter
 from info import level, weapons, hp, expe, expe_f
 from list_bag import bag
+from list_enemies import enemies
 
 
 while True:
+    enemies_txt(0)
     print(str(level)+' '+str(hp)+' '+str(int(expe))+' '+str(int(expe_f)))
     input()
     xp=encounter()

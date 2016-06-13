@@ -1,8 +1,7 @@
 from list_bag import bag
 from list_enemies import enemies
-from current_area import area
 
-def enemies_txt():
+def enemies_txt(area):
 	file=open('list_enemies.py', 'r')
 	red=file.read()
 	if area==0:
@@ -45,8 +44,9 @@ def items_txt_rmv(item):
 	file.write('bag=[\''+'\', \''.join(_bag_)+'\']')
 	file.close()
 
-def change_area(now_area):
+'''def change_area(now_area):
 	changed_area='area='+str(now_area)
 	file=open('current_area.py', 'w')
 	file.write(changed_area)
-	file.close
+	file.close'''
+
