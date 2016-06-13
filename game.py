@@ -8,11 +8,10 @@ from list_enemies import enemies
 
 
 while True:
-    enemies_txt(0)
     print(str(level)+' '+str(hp)+' '+str(int(expe))+' '+str(int(expe_f)))
     input()
     xp=encounter()
-    if xp !=None:
+    if xp !=None and level<50:
         expe+=xp
     while expe>=expe_f and level<50:
         level= level + 1
