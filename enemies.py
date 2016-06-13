@@ -1,1 +1,0 @@
-enemies=['Amoeba  1  20  20', 'Amoeba  1  20  20', 'Amoeba  1  20  20']
