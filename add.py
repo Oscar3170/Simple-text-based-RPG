@@ -41,11 +41,21 @@ def items_txt_rmv(item):
 	file.write('bag=[\''+'\', \''.join(_bag_)+'\']')
 	file.close()
 
-'''def change_area(now_area):
-	changed_area='area='+str(now_area)
-	file=open('current_area.py', 'w')
-	file.write(changed_area)
-	file.close'''
+def weapons(new_weapon):
+	file=open('info.py','r')
+	split_file=file.read().split('\n')
+	the_weapons=split_file[1].split('=')
+	print(the_weapons)
 
-enemies_txt(0)
+
+
+
+
+
+
+
+
+
+
+weapons('pinto')
 
