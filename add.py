@@ -1,20 +1,25 @@
-from list_bag import bag
-from list_enemies import enemies
+from info import weapons, bag
 
 def enemies_txt(area):
 	if area==0:
 		letters=('enemies=[\'Rat  03  10  35\', \'Pigeon  04  05  35\', \'Big Rat  04  15  65\']')
 	elif area==1:
 		letters=('enemies=[\'Amoeba  1  20  20\']')
-	file=open('list_enemies.py', 'w')
-	file.write(letters)
+	file=open('info.py','r')
+	split_file=file.read().split('\n')
+	split_file[2]=(letters)
+	file=open('info.py', 'w')
+	file.write('\n'.join(split_file))
 	file.close()
 
 def items_txt_add(new_item):
 	_bag_=bag
 	_bag_.append(new_item)
-	file=open('list_bag.py', 'w')
-	file.write('bag=[\''+'\', \''.join(_bag_)+'\']')
+	file=open('info.py','r')
+	split_file=file.read().split('\n')
+	split_file[1]=('bag=[\''+'\', \''.join(_bag_)+'\']')
+	file=open('info.py', 'w')
+	file.write('\n'.join(split_file))
 	file.close()
 
 def items_txt_rmv(item):
@@ -37,25 +42,20 @@ def items_txt_rmv(item):
 		else:
 			joined_item='  '.join(split_item)
 			_bag_[_bag_.index(chosen_item)]=joined_item
-	file=open('list_bag.py', 'w')
-	file.write('bag=[\''+'\', \''.join(_bag_)+'\']')
-	file.close()
-
-def weapons(new_weapon):
 	file=open('info.py','r')
 	split_file=file.read().split('\n')
-	the_weapons=split_file[1].split('=')
-	print(the_weapons)
+	split_file[1]=('bag=[\''+'\', \''.join(_bag_)+'\']')
+	file=open('info.py', 'w')
+	file.write('\n'.join(split_file))
+	file.close()
 
-
-
-
-
-
-
-
-
-
-
-weapons('pinto')
+def new_weapons(new_weapon):
+	_weapons_=weapons
+	_weapons_.append(new_weapon)
+	file=open('info.py','r')
+	split_file=file.read().split('\n')
+	split_file[0]=('weapons=[\''+'\', \''.join(_weapons_)+'\']')
+	file=open('info.py', 'w')
+	file.write('\n'.join(split_file))
+	file.close()
 
