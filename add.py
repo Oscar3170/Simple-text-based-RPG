@@ -3,7 +3,7 @@ from list_enemies import enemies
 
 def enemies_txt(area):
 	if area==0:
-		letters=('enemies=[\'Rat  03  10  35\', \'Pigeon  04  05  45\', \'Big Rat  04  15  65\']')
+		letters=('enemies=[\'Rat  03  10  35\', \'Pigeon  04  05  35\', \'Big Rat  04  15  65\']')
 	elif area==1:
 		letters=('enemies=[\'Amoeba  1  20  20\']')
 	file=open('list_enemies.py', 'w')
