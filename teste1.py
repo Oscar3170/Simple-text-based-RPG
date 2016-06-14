@@ -49,14 +49,20 @@ class Item:
 
 class Bag:
 
-	def __init__(self, slots):
-		self.slots = slots
+	def __init__(self):
+		self.slots = []
 
 	def __repr__(self):
 		return "Bag com: %s" % self.slots
 
 	def add_item(self, item):
+		'''Adiciona um item na bag'''
 		self.slots.append(item)
+
+	def add_items(self, item_list):
+		'''Adiciona uma lista de itens na bag'''
+		for item in item_list:
+			self.add_item(item)
 
 	def use_item(self, item_name):
 		'''Recebe o nome do item, retorna ele e remove da bolsa'''
@@ -68,46 +74,82 @@ class Bag:
 				del(self.slots[i])
 				return item
 
+class Player:
+
+	def __init__(self, name):
+		self.name = name
+		self.bag = Bag()
+		self.weapons = []
+		self.hp = 29
+		self.xp = 0
+
+	def __repr__(self):
+		return "Jogador %s - HP: %d - XP: %d" % (self.name, self.hp, self.xp)
+
+	def use_item(self, item_name):
+		'''Faz com que o jogador use um item'''
+
+		item = self.bag.use_item(item_name)
+
+		if not item:
+			print("Item %s nao encontrado" % item_name)			
+			return
+
+		if item.type == "heal":
+			self.hp += item.life
+			print("%s usou %s e recuperou %s de life" % (self.name, item.name, item.life))
+		else:
+			raise Exception("Ainda nao sei como usar um item do tipo %s: %r" % (item.type, item))
+
 gi = GameInfo()
 
 pp = pprint.PrettyPrinter(indent=4)
 
-print("Dados do jogo:")
 
 # Testa se existem dados para o jogo
 if not gi.data:
-	# Cria as armas iniciais
-	gi.data['weapons'] = []
-	
-	# Cria a arma chamada Fists
-	fists = Weapon('Fists', 3)
-	gi.data['weapons'].append(fists)
-	
-	# Cria a arma chamada Sword
-	sword = Weapon('Sword', 30)
-	gi.data['weapons'].append(sword)
+
+	print("Bem vindo ao RPG do Oscar")
+
+	print("Qual eh o seu nome marujo?")
+	name = input()
+
+	player = Player(name)
+	gi.data['player'] = player
+
+	# Conjunto de armas iniciais
+	player.weapons = [
+		Weapon('Fists', 3),
+		Weapon('Sword', 30)
+	]
 
 	# Cria os itens iniciais
-	gi.data['bag'] = Bag([
+	player.bag.add_items([
 		Item('Bread', 'heal', 10, 3),
 		Item('Water', 'heal', 5, 1),
 		Item('Flames', 'dmg', 20, 1),
 	])
 
+print()
+print("Situacao atual do jogo:")
 pp.pprint(gi.data)
 
 def encounter(gi):
+	player = gi.data['player']
+
 	print("Qual item quer utilizar?")
 	item_name = input()
-	item = gi.data['bag'].use_item(item_name)
 
-	if item:
-		print(repr(item))
-	else:
-		print("Item %s nao encontrado" % item_name)
+	player.use_item(item_name)
+
 
 
 encounter(gi)
 
 
+
+print()
+print("Situacao final do jogo:")
+pp.pprint(gi.data)
 gi.save()
+
