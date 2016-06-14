@@ -12,11 +12,11 @@ while True:
     input()
     xp=encounter()
     if xp !=None and level<50:
-        expe+=xp
+        expe+=float(xp)
     while expe>=expe_f and level<50:
         level= level + 1
         hp= hp + 4
-        expe_f=level*100*1.3
+        expe_f=level**3*(100+100/3)
         if level==50:
             expe_f=0
             expe=0
