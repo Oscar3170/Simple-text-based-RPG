@@ -47,10 +47,32 @@ class Item:
 		return "Item %s - Type: %s - Damage: %d - Life: %d" % (self.name, self.type, self.damage, self.life)
 
 
+class Bag:
+
+	def __init__(self, slots):
+		self.slots = slots
+
+	def __repr__(self):
+		return "Bag com: %s" % self.slots
+
+	def add_item(self, item):
+		self.slots.append(item)
+
+	def use_item(self, item_name):
+		'''Recebe o nome do item, retorna ele e remove da bolsa'''
+
+		for i in range(len(self.slots)):
+			item = self.slots[i]
+
+			if item.name == item_name:
+				del(self.slots[i])
+				return item
+
 gi = GameInfo()
 
+pp = pprint.PrettyPrinter(indent=4)
+
 print("Dados do jogo:")
-print(gi.data)
 
 # Testa se existem dados para o jogo
 if not gi.data:
@@ -66,17 +88,26 @@ if not gi.data:
 	gi.data['weapons'].append(sword)
 
 	# Cria os itens iniciais
-	gi.data['bag'] = [
+	gi.data['bag'] = Bag([
 		Item('Bread', 'heal', 10, 3),
 		Item('Water', 'heal', 5, 1),
 		Item('Flames', 'dmg', 20, 1),
-	]
+	])
+
+pp.pprint(gi.data)
+
+def encounter(gi):
+	print("Qual item quer utilizar?")
+	item_name = input()
+	item = gi.data['bag'].use_item(item_name)
+
+	if item:
+		print(repr(item))
+	else:
+		print("Item %s nao encontrado" % item_name)
 
 
-	
+encounter(gi)
 
-
-
-pprint.pprint(gi.data)
 
 gi.save()
