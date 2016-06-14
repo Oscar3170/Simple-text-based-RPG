@@ -2,9 +2,7 @@ import os
 from random import randint
 from add import enemies_txt, items_txt_add
 from fight import encounter
-from info import level, weapons, hp, expe, expe_f
-from list_bag import bag
-from list_enemies import enemies
+from info import level, weapons, hp, expe, expe_f, bag
 
 
 while True:

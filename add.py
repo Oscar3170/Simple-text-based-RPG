@@ -52,6 +52,7 @@ def items_txt_rmv(item):
 def new_weapons(new_weapon):
 	_weapons_=weapons
 	_weapons_.append(new_weapon)
+	print (_weapons_)
 	file=open('info.py','r')
 	split_file=file.read().split('\n')
 	split_file[0]=('weapons=[\''+'\', \''.join(_weapons_)+'\']')
@@ -59,3 +60,4 @@ def new_weapons(new_weapon):
 	file.write('\n'.join(split_file))
 	file.close()
 
+new_weapons('PINTU')
